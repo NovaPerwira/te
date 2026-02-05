@@ -8,9 +8,8 @@ const _geist = Geist({ subsets: ['latin'] })
 const _geistMono = Geist_Mono({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Alex Graham - Designer & Web Engineer',
-  description: 'Portfolio of Alex Graham, a versatile designer and web engineer specializing in clear interfaces, sharp decisions, and fast execution.',
-  generator: 'v0.app',
+  title: 'Nova Perwira - AI & Web Developer',
+  description: 'Portfolio of Nova Perwira, a versatile AI and web developer specializing in clear interfaces, sharp decisions, and fast execution.'
 }
 
 export default function RootLayout({

@@ -104,7 +104,7 @@ export default function Home() {
             </div>
 
             <motion.p variants={fadeInUp} className="text-lg font-serif text-gray-600 max-w-md leading-relaxed mt-4">
-              Transforming ideas into stunning visuals—UI/UX and brand design that captivates, engages, and delivers results.
+              Founder & Full-Stack Developer crafting scalable web solutions with UI/UX, AI integration, and modern technologies for SMEs.
             </motion.p>
 
             <motion.button 
@@ -146,10 +146,10 @@ export default function Home() {
             className="lg:col-span-4 flex flex-col justify-center items-start lg:items-end space-y-10 lg:text-right"
           >
             {[
-              { num: "15+", label: "Years Experience" },
-              { num: "280+", label: "Projects Delivered" },
+              { num: "2+", label: "Years Experience" },
+              { num: "20+", label: "Projects Delivered" },
               { num: "*99%", label: "Client Satisfaction" },
-              { num: "50", label: "Clients Worldwide" }
+              { num: "5", label: "Clients Worldwide" }
             ].map((stat, idx) => (
               <motion.div key={idx} variants={fadeInUp}>
                 <h3 className="text-4xl font-bold font-sans">{stat.num}</h3>
