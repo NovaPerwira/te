@@ -37,7 +37,7 @@ export default function Navbar() {
         {/* --- LOGO --- */}
         <Link href="/" className="z-50 group">
           <h1 className="text-2xl font-black uppercase tracking-tighter flex items-center gap-1">
-            Solt
+            Nova Perwira
             <span className="w-2 h-2 bg-black rounded-full group-hover:bg-orange-600 transition-colors"></span>
           </h1>
         </Link>

@@ -89,7 +89,7 @@ export default function Home() {
             variants={staggerContainer}
             className="lg:col-span-4 flex flex-col justify-center space-y-6 z-20"
           >
-            <motion.p variants={fadeInUp} className="font-serif text-xl italic text-gray-700">Hey, I'm Solt,</motion.p>
+            <motion.p variants={fadeInUp} className="font-serif text-xl italic text-gray-700">Hey, I'm Nova,</motion.p>
             
             <div className="leading-[0.9]">
               <motion.h1 variants={fadeInUp} className="text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter uppercase font-sans mb-1">
@@ -130,7 +130,7 @@ export default function Home() {
             <div className="relative w-full max-w-sm h-[400px] lg:h-[600px] overflow-hidden rounded-b-[200px] shadow-2xl">
               <Image 
                 src="/novaperwira.png" 
-                alt="Solt Designer"
+                alt="nova Designer"
                 fill
                 className="object-cover object-top hover:scale-110 transition-transform duration-700"
                 priority
@@ -365,14 +365,14 @@ export default function Home() {
                 Start a Project <Mail size={18} />
              </button>
              <button className="border border-[#1a1a1a] px-8 py-4 rounded-full text-lg font-bold uppercase tracking-widest hover:bg-[#1a1a1a] hover:text-white transition-colors w-fit">
-                hello@novaperwira.com
+                novaperwira30@gmail.com
              </button>
           </motion.div>
         </div>
 
         <footer className="w-full border-t border-black/20 pt-8 mt-20">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm font-bold uppercase tracking-widest">
-            <p>© 2024 Solt Portfolio.</p>
+            <p>© 2026 Nova Perwira Portfolio.</p>
             <div className="flex gap-8">
               <a href="#" className="hover:text-orange-600 transition-colors">LinkedIn</a>
               <a href="#" className="hover:text-orange-600 transition-colors">Instagram</a>
