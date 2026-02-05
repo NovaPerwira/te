@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Hello World</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Sedikit styling tambahan untuk efek tekan tombol */
+        .btn-active:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+
+    <div class="bg-gray-900 p-6 rounded-2xl shadow-2xl w-80">
+        
+        <div class="mb-5">
+            <input type="text" id="display" readonly 
+                class="w-full h-16 bg-gray-800 text-white text-right text-3xl font-mono p-4 rounded-lg focus:outline-none placeholder-gray-500" 
+                placeholder="0">
+        </div>
+
+        <div class="grid grid-cols-4 gap-3">
+            
+            <button onclick="clearDisplay()" class="col-span-2 bg-red-500 hover:bg-red-600 text-white font-bold py-4 rounded-lg btn-active transition">AC</button>
+            <button onclick="deleteLast()" class="bg-gray-600 hover:bg-gray-500 text-white font-bold py-4 rounded-lg btn-active transition">DEL</button>
+            <button onclick="addToDisplay('/')" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 rounded-lg btn-active transition">÷</button>
+
+            <button onclick="addToDisplay('7')" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-4 rounded-lg btn-active transition">7</button>
+            <button onclick="addToDisplay('8')" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-4 rounded-lg btn-active transition">8</button>
+            <button onclick="addToDisplay('9')" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-4 rounded-lg btn-active transition">9</button>
+            <button onclick="addToDisplay('*')" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 rounded-lg btn-active transition">×</button>
+
+            <button onclick="addToDisplay('4')" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-4 rounded-lg btn-active transition">4</button>
+            <button onclick="addToDisplay('5')" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-4 rounded-lg btn-active transition">5</button>
+            <button onclick="addToDisplay('6')" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-4 rounded-lg btn-active transition">6</button>
+            <button onclick="addToDisplay('-')" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 rounded-lg btn-active transition">-</button>
+
+            <button onclick="addToDisplay('1')" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-4 rounded-lg btn-active transition">1</button>
+            <button onclick="addToDisplay('2')" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-4 rounded-lg btn-active transition">2</button>
+            <button onclick="addToDisplay('3')" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-4 rounded-lg btn-active transition">3</button>
+            <button onclick="addToDisplay('+')" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 rounded-lg btn-active transition">+</button>
+
+            <button onclick="addToDisplay('0')" class="col-span-2 bg-gray-700 hover:bg-gray-600 text-white font-bold py-4 rounded-lg btn-active transition">0</button>
+            <button onclick="addToDisplay('.')" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-4 rounded-lg btn-active transition">.</button>
+            
+            <button onclick="prankResult()" class="bg-green-500 hover:bg-green-600 text-white font-bold py-4 rounded-lg btn-active transition">=</button>
+        </div>
+    </div>
+
+    <script>
+        const display = document.getElementById('display');
+
+        // Fungsi menambahkan angka/operator ke layar
+        function addToDisplay(value) {
+            // Mencegah "Hello World" tertimpa langsung dengan angka, reset dulu jika ada teks itu
+            if (display.value === "Hello World") {
+                display.value = "";
+            }
+            display.value += value;
+        }
+
+        // Fungsi hapus semua (AC)
+        function clearDisplay() {
+            display.value = '';
+        }
+
+        // Fungsi hapus satu karakter (DEL)
+        function deleteLast() {
+            if (display.value === "Hello World") {
+                display.value = "";
+            } else {
+                display.value = display.value.toString().slice(0, -1);
+            }
+        }
+
+        // FUNGSI PRANK UTAMA
+        function prankResult() {
+            // Alih-alih menghitung (eval), kita langsung ubah teksnya
+            display.value = "Hello World";
+        }
+    </script>
+</body>
+</html>
