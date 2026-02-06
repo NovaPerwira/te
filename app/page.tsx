@@ -248,7 +248,7 @@ export default function Home() {
         >
           <div className="relative w-full max-w-sm h-[400px] lg:h-[600px] overflow-hidden rounded-b-[200px] shadow-2xl">
             <Image
-              src="/novaperwira.png"
+              src="/novaperwira.webp"
               alt="nova Designer"
               fill
               className="object-cover object-top hover:scale-110 transition-transform duration-700"
