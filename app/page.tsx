@@ -61,7 +61,7 @@ const services = [
 
 const Card = ({ i, title, description, items, number, progress, range, targetScale }) => {
   const container = useRef(null);
-  
+
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ['start start', 'end end']
@@ -71,18 +71,18 @@ const Card = ({ i, title, description, items, number, progress, range, targetSca
 
   return (
     <div ref={container} className="h-screen flex items-start justify-center sticky top-0 px-4">
-      <motion.div 
-        style={{ 
-          scale, 
-          top: `calc(15vh + ${i * 25}px)` 
-        }} 
+      <motion.div
+        style={{
+          scale,
+          top: `calc(15vh + ${i * 25}px)`
+        }}
         // --- PERBAIKAN DISINI ---
         // 1. max-w-7xl diganti jadi max-w-5xl (agar tidak terlalu lebar ke samping)
         // 2. md:h-[500px] diganti jadi md:h-[450px] (agar lebih proporsional)
         className="flex flex-col relative w-full max-w-md md:max-w-5xl h-[60vh] md:h-[450px] border border-black/10 rounded-2xl md:rounded-3xl p-6 md:p-10 origin-top shadow-2xl bg-[#f0f0f0]"
       >
         <div className="h-full flex flex-col justify-between relative z-10">
-          
+
           {/* Header Kartu */}
           <div className="flex justify-between items-start border-b border-black/10 pb-4 md:pb-5 mb-4">
             <h3 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-[#1a1a1a]">
@@ -95,7 +95,7 @@ const Card = ({ i, title, description, items, number, progress, range, targetSca
 
           {/* Body Kartu */}
           <div className="flex flex-col md:grid md:grid-cols-2 gap-6 md:gap-10 h-full justify-between md:items-end">
-            
+
             {/* Deskripsi & Tags */}
             <div className="space-y-4">
               {/* text-xl di desktop sudah cukup besar & mudah dibaca */}
@@ -113,12 +113,12 @@ const Card = ({ i, title, description, items, number, progress, range, targetSca
 
             {/* Tombol Learn More */}
             <div className="flex justify-end items-end mt-auto md:mt-0">
-               <div className="group flex items-center gap-3 cursor-pointer">
-                  <span className="text-xs md:text-sm font-bold uppercase tracking-widest hidden md:block">Learn More</span>
-                  <div className="bg-[#1a1a1a] text-white p-3 md:p-4 rounded-full group-hover:scale-110 transition-transform duration-300">
-                    <ArrowRight size={20} className="md:w-6 md:h-6 -rotate-45 group-hover:rotate-0 transition-transform duration-300"/>
-                  </div>
-               </div>
+              <div className="group flex items-center gap-3 cursor-pointer">
+                <span className="text-xs md:text-sm font-bold uppercase tracking-widest hidden md:block">Learn More</span>
+                <div className="bg-[#1a1a1a] text-white p-3 md:p-4 rounded-full group-hover:scale-110 transition-transform duration-300">
+                  <ArrowRight size={20} className="md:w-6 md:h-6 -rotate-45 group-hover:rotate-0 transition-transform duration-300" />
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -129,28 +129,32 @@ const Card = ({ i, title, description, items, number, progress, range, targetSca
 
 const projects = [
   {
-    title: 'E-Commerce Redesign',
-    category: 'Design, Development',
-    description: 'Complete platform overhaul resulting in 40% increase in conversion rate',
-    color: 'from-blue-400 to-blue-600' // Simulasi warna placeholder
+    title: 'Jasa Digital UMKM',
+    category: 'Design, Web Development',
+    description: 'End-to-end digital solutions for SMEs, helping local businesses build strong branding, modern websites, and increase online visibility and customer trust.',
+    image: '/Jasa Digital UMKM.png', // Simulasi warna placeholder
+    href: 'https://kavushion.vercel.app'
   },
   {
-    title: 'SaaS Dashboard',
+    title: 'Effection',
     category: 'Development, Design',
     description: 'Real-time analytics dashboard with custom data visualization components',
-    color: 'from-purple-400 to-purple-600'
+    image: '/Jasa Digital UMKM.png',
+    href: '#'
   },
   {
     title: 'Brand Identity System',
     category: 'Branding, Design',
     description: 'Comprehensive brand guidelines and design system for growing startup',
-    color: 'from-orange-400 to-orange-600'
+    image: '/Jasa Digital UMKM.png',
+    href: '#'
   },
   {
     title: 'Mobile App Design',
     category: 'Design, Development',
     description: 'iOS & Android native application with seamless user experience',
-    color: 'from-green-400 to-green-600'
+    image: '/Jasa Digital UMKM.png',
+    href: '#'
   }
 ];
 
@@ -173,7 +177,7 @@ const staggerContainer = {
 export default function Home() {
 
   const container = useRef(null);
-  
+
   // Melacak scroll container utama untuk mengatur 'squeeze' effect
   const { scrollYProgress } = useScroll({
     target: container,
@@ -194,101 +198,101 @@ export default function Home() {
 
       {/* --- HERO SECTION --- */}
       <section className="min-h-screen flex flex-col justify-center px-6 py-20 md:px-12 pt-32">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center max-w-7xl mx-auto w-full relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center max-w-7xl mx-auto w-full relative z-10">
 
-        {/* Left: Text */}
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={staggerContainer}
-          className="lg:col-span-4 flex flex-col justify-center space-y-6 z-20"
-        >
-          <motion.p variants={fadeInUp} className="font-serif text-xl italic text-muted-foreground">Hey, I'm Nova,</motion.p>
+          {/* Left: Text */}
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={staggerContainer}
+            className="lg:col-span-4 flex flex-col justify-center space-y-6 z-20"
+          >
+            <motion.p variants={fadeInUp} className="font-serif text-xl italic text-muted-foreground">Hey, I'm Nova,</motion.p>
 
-          <div className="leading-[0.9]">
-            <motion.h1 variants={fadeInUp} className="text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter uppercase font-sans mb-1">
-              A UI/UX
-            </motion.h1>
-            <motion.h2 variants={fadeInUp} className="text-5xl md:text-6xl lg:text-7xl font-serif italic font-light mb-2">
-              & Web
-            </motion.h2>
-            <motion.h1 variants={fadeInUp} className="text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter uppercase font-sans">
-              Develop<span
-                className="text-transparent mix-blend-difference"
-                style={{ WebkitTextStroke: '1px currentColor' }}
-              >
-                er
-              </span>
-            </motion.h1>
-          </div>
-
-          <motion.p variants={fadeInUp} className="text-lg font-serif text-muted-foreground max-w-md leading-relaxed mt-4">
-            Founder & Full-Stack Developer crafting scalable web solutions with UI/UX, AI integration, and modern technologies for SMEs.
-          </motion.p>
-
-          <motion.button
-            variants={fadeInUp}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="group self-start w-fit bg-primary text-primary-foreground rounded-full px-6 py-3 mt-6 flex items-center gap-4 hover:bg-sky-600 hover:text-white transition-colors"
->
-            <span className="text-sm font-bold tracking-widest uppercase">Contact Me</span>
-            <div className="bg-background text-foreground rounded-full p-1 group-hover:translate-x-1 transition-transform">
-              <ArrowRight size={16} />
+            <div className="leading-[0.9]">
+              <motion.h1 variants={fadeInUp} className="text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter uppercase font-sans mb-1">
+                A AI
+              </motion.h1>
+              <motion.h2 variants={fadeInUp} className="text-5xl md:text-6xl lg:text-7xl font-serif italic font-light mb-2">
+                & Web
+              </motion.h2>
+              <motion.h1 variants={fadeInUp} className="text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter uppercase font-sans">
+                Develop<span
+                  className="text-transparent mix-blend-difference"
+                  style={{ WebkitTextStroke: '2px #6d6d6dff' }}
+                >
+                  er
+                </span>
+              </motion.h1>
             </div>
-          </motion.button>
-        </motion.div>
 
-        {/* Center: Image */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="lg:col-span-4 h-full relative flex justify-center items-start lg:-mt-20"
-        >
-          <div className="relative w-full max-w-sm h-[400px] lg:h-[600px] overflow-hidden rounded-b-[200px] shadow-2xl">
-            <Image
-              src="/novaperwira.webp"
-              alt="nova Designer"
-              fill
-              className="object-cover object-top hover:scale-110 transition-transform duration-700"
-              priority
-            />
-          </div>
-        </motion.div>
+            <motion.p variants={fadeInUp} className="text-lg font-serif text-muted-foreground max-w-md leading-relaxed mt-4">
+              Founder & Full-Stack Developer crafting scalable web solutions with UI/UX, AI integration, and modern technologies for SMEs.
+            </motion.p>
 
-        {/* Right: Stats (FIXED) */}
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={staggerContainer}
-          // PERUBAHAN DI SINI:
-          // 1. Hapus 'lg:items-end', ganti jadi 'lg:items-start' (agar nempel ke arah gambar)
-          // 2. Tambahkan 'lg:pl-12' atau 'xl:pl-20' (agar ada jarak sedikit dari gambar, tidak nempel banget)
-          // 3. Ganti 'lg:text-right' jadi 'text-left' (opsional, biar rata kiri rapi)
-          className="lg:col-span-4 flex flex-col justify-center items-start space-y-10 lg:pl-16" 
-        >
-          {stats.map((stat, idx) => (
-            <motion.div key={idx} variants={fadeInUp}>
-              {/* Hapus 'lg:justify-end' supaya angka & icon tetap di kiri */}
-              <h3 className="text-4xl font-bold font-sans flex items-center gap-1">
-                {stat.prefix && <span>{stat.prefix}</span>}
-                
-                <CountUp 
-                    end={stat.value} 
-                    duration={2.5} 
+            <motion.button
+              variants={fadeInUp}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="group self-start w-fit bg-primary text-primary-foreground rounded-full px-6 py-3 mt-6 flex items-center gap-4 hover:bg-sky-600 hover:text-white transition-colors"
+            >
+              <span className="text-sm font-bold tracking-widest uppercase">Contact Me</span>
+              <div className="bg-background text-foreground rounded-full p-1 group-hover:translate-x-1 transition-transform">
+                <ArrowRight size={16} />
+              </div>
+            </motion.button>
+          </motion.div>
+
+          {/* Center: Image */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="lg:col-span-4 h-full relative flex justify-center items-start lg:-mt-20"
+          >
+            <div className="relative w-full max-w-sm h-[400px] lg:h-[600px] overflow-hidden rounded-b-[200px] shadow-2xl">
+              <Image
+                src="/novaperwira.webp"
+                alt="nova Designer"
+                fill
+                className="object-cover object-top hover:scale-110 transition-transform duration-700"
+                priority
+              />
+            </div>
+          </motion.div>
+
+          {/* Right: Stats (FIXED) */}
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={staggerContainer}
+            // PERUBAHAN DI SINI:
+            // 1. Hapus 'lg:items-end', ganti jadi 'lg:items-start' (agar nempel ke arah gambar)
+            // 2. Tambahkan 'lg:pl-12' atau 'xl:pl-20' (agar ada jarak sedikit dari gambar, tidak nempel banget)
+            // 3. Ganti 'lg:text-right' jadi 'text-left' (opsional, biar rata kiri rapi)
+            className="lg:col-span-4 flex flex-col justify-center items-start space-y-10 lg:pl-16"
+          >
+            {stats.map((stat, idx) => (
+              <motion.div key={idx} variants={fadeInUp}>
+                {/* Hapus 'lg:justify-end' supaya angka & icon tetap di kiri */}
+                <h3 className="text-4xl font-bold font-sans flex items-center gap-1">
+                  {stat.prefix && <span>{stat.prefix}</span>}
+
+                  <CountUp
+                    end={stat.value}
+                    duration={2.5}
                     enableScrollSpy={true}
                     scrollSpyOnce={true}
-                />
+                  />
 
-                {stat.suffix && <span>{stat.suffix}</span>}
-              </h3>
-              <p className="font-serif text-muted-foreground">{stat.label}</p>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
-    </section>
+                  {stat.suffix && <span>{stat.suffix}</span>}
+                </h3>
+                <p className="font-serif text-muted-foreground">{stat.label}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
 
       {/* --- SERVICES SECTION --- */}
       {/* <section id="services" className="py-24 px-6 md:px-12 border-b border-border bg-background/30 backdrop-blur-sm">
@@ -355,36 +359,36 @@ export default function Home() {
       </section> */}
 
       <section id="services" className="bg-[#DCDCD9] relative">
-      
-      {/* Intro Title Sticky */}
-      {/* Mobile: h-[15vh], Desktop: h-[30vh] */}
-      {/* Padding disesuaikan agar tidak terlalu lebar di mobile */}
-      <div className="px-6 md:px-12 pt-8 md:pt-12 max-w-7xl mx-auto sticky top-0 h-[20vh] md:h-[30vh] flex flex-col justify-center z-0">
-        <h2 className="text-4xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter mb-2 md:mb-4 text-[#1a1a1a]">
-            Our <span className="font-serif italic font-light lowercase">expertise</span>
-        </h2>
-        <p className="font-serif text-sm md:text-xl text-gray-600 max-w-xs md:max-w-xl">
-            Scroll down to explore.
-        </p>
-      </div>
 
-      {/* Parallax Container */}
-      <div ref={container} className="w-full relative px-4 pb-20 md:pb-32 z-10 flex flex-col items-center">
-        {services.map((service, i) => {
-          const targetScale = 1 - ((services.length - i) * 0.05); 
-          return (
-            <Card 
-              key={i} 
-              i={i} 
-              {...service} 
-              progress={scrollYProgress}
-              range={[i * 0.25, 1]}
-              targetScale={targetScale}
-            />
-          );
-        })}
-      </div>
-    </section>
+        {/* Intro Title Sticky */}
+        {/* Mobile: h-[15vh], Desktop: h-[30vh] */}
+        {/* Padding disesuaikan agar tidak terlalu lebar di mobile */}
+        <div className="px-6 md:px-12 pt-8 md:pt-12 max-w-7xl mx-auto sticky top-0 h-[20vh] md:h-[30vh] flex flex-col justify-center z-0">
+          <h2 className="text-4xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter mb-2 md:mb-4 text-[#1a1a1a]">
+            Our <span className="font-serif italic font-light lowercase">expertise</span>
+          </h2>
+          <p className="font-serif text-sm md:text-xl text-gray-600 max-w-xs md:max-w-xl">
+            Scroll down to explore.
+          </p>
+        </div>
+
+        {/* Parallax Container */}
+        <div ref={container} className="w-full relative px-4 pb-20 md:pb-32 z-10 flex flex-col items-center">
+          {services.map((service, i) => {
+            const targetScale = 1 - ((services.length - i) * 0.05);
+            return (
+              <Card
+                key={i}
+                i={i}
+                {...service}
+                progress={scrollYProgress}
+                range={[i * 0.25, 1]}
+                targetScale={targetScale}
+              />
+            );
+          })}
+        </div>
+      </section>
 
       {/* --- PROJECTS SECTION --- */}
       <section id="projects" className=" py-24 px-6 md:px-12">
@@ -405,26 +409,31 @@ export default function Home() {
             </Link>
           </motion.div>
 
-          
-            <div className="grid  md:grid-cols-2 gap-x-12 gap-y-20">
-              {projects.map((project, index) => (
-                <motion.div
-                  key={index}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: "-50px" }}
-                  variants={{
-                    hidden: { opacity: 0, y: 100 },
-                    visible: { opacity: 1, y: 0, transition: { delay: index * 0.2, duration: 0.6 } }
-                  }}
-                  className="group cursor-pointer"
-                >
+
+          <div className="grid  md:grid-cols-2 gap-x-12 gap-y-20">
+            {projects.map((project, index) => (
+              <motion.div
+                key={index}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
+                variants={{
+                  hidden: { opacity: 0, y: 100 },
+                  visible: { opacity: 1, y: 0, transition: { delay: index * 0.2, duration: 0.6 } }
+                }}
+                className="group cursor-pointer"
+              >
+                <Link href={project.href} className="block">
                   {/* Image Card */}
                   <div className="relative project-trigger aspect-[4/3] bg-muted mb-6 overflow-hidden rounded-lg shadow-lg">
                     <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500 z-10" />
 
-                    {/* Mockup Gradient Background (Ganti dengan <Image /> asli Anda nanti) */}
-                    <div className={`w-full h-full bg-gradient-to-br ${project.color} group-hover:scale-105 transition-transform duration-700 ease-out`} />
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                    />
 
                     <div className="absolute top-4 left-4 z-20 bg-background/90 backdrop-blur-sm px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest text-foreground">
                       {project.category}
@@ -438,10 +447,11 @@ export default function Home() {
                     </div>
                     <ArrowUpRight className="opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 transition-all duration-300" />
                   </div>
-                </motion.div>
-              ))}
-            </div>
-          
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+
         </div>
       </section>
 
@@ -539,14 +549,14 @@ export default function Home() {
             <p>© 2026 Nova Perwira Portfolio.</p>
             <div className="flex gap-8">
               <a href="#" className="hover:text-sky-600 transition-colors">LinkedIn</a>
-              <a href="#" className="hover:text-sky-600 transition-colors">Instagram</a>
-              <a href="#" className="hover:text-sky-600 transition-colors">Twitter</a>
+              <a href="https://www.instagram.com/novastrategyid" className="hover:text-sky-600 transition-colors">Instagram</a>
+              <a href="https://github.com/NovaPerwira" className="hover:text-sky-600 transition-colors">GitHub</a>
             </div>
           </div>
         </footer>
       </section>
 
-      
+
     </div>
   )
 }

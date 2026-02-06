@@ -117,7 +117,7 @@ export default function Cursor() {
         stiffness: 500,
         damping: 28,
         // Transisi khusus untuk property tertentu
-        backgroundColor: { duration: 0.2 }, 
+        backgroundColor: { duration: 0.2 },
         mixBlendMode: { duration: 0.2 },
         opacity: { duration: 0.2 }
       }}
