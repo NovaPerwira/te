@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import Cursor from "@/components/cursor";
 
+import { LanguageProvider } from "@/components/language-provider";
 import './globals.css'
 
 const _geist = Geist({ subsets: ['latin'] })
@@ -20,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body className="font-sans antialiased">
         <ThemeProvider
           attribute="class"
@@ -28,7 +29,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <LanguageProvider>
+            {children}
+          </LanguageProvider>
         </ThemeProvider>
         <Cursor />
       </body>
