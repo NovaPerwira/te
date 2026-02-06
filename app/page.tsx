@@ -7,10 +7,9 @@ import Navbar from '@/components/navbar';
 import { ArrowRight, ArrowUpRight, Mail } from "lucide-react";
 import { motion, useScroll, useTransform } from 'framer-motion';
 // import { CountUp } from '@/components/count-up';
-import { ProjectCursor } from '@/components/project-cursor';
 import CountUp from 'react-countup';
 import { useRef } from 'react';
-
+import HorizontalScrollSection from '@/components/text';
 // --- DATA ---
 const services = [
   {
@@ -63,55 +62,61 @@ const services = [
 const Card = ({ i, title, description, items, number, progress, range, targetScale }) => {
   const container = useRef(null);
   
-  // Mengatur animasi scale (mengecil saat kartu berikutnya naik)
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ['start start', 'end end']
   });
 
-  const imageScale = useTransform(scrollYProgress, [0, 1], [2, 1]);
   const scale = useTransform(progress, range, [1, targetScale]);
 
   return (
-    <div ref={container} className="h-screen flex items-center justify-center sticky top-0">
+    <div ref={container} className="h-screen flex items-start justify-center sticky top-0 px-4">
       <motion.div 
-        style={{ scale, top: `calc(-5vh + ${i * 25}px)` }} 
-        className="flex flex-col relative w-full max-w-7xl h-[60vh] md:h-[500px] border border-black/10 rounded-3xl p-8 md:p-12 origin-top shadow-2xl"
+        style={{ 
+          scale, 
+          top: `calc(15vh + ${i * 25}px)` 
+        }} 
+        // --- PERBAIKAN DISINI ---
+        // 1. max-w-7xl diganti jadi max-w-5xl (agar tidak terlalu lebar ke samping)
+        // 2. md:h-[500px] diganti jadi md:h-[450px] (agar lebih proporsional)
+        className="flex flex-col relative w-full max-w-md md:max-w-5xl h-[60vh] md:h-[450px] border border-black/10 rounded-2xl md:rounded-3xl p-6 md:p-10 origin-top shadow-2xl bg-[#f0f0f0]"
       >
-        {/* Background Kartu (Solid Color is Mandatory) */}
-        <div className="absolute inset-0 bg-[#f0f0f0] rounded-3xl -z-10" />
-
-        <div className="h-full flex flex-col justify-between">
+        <div className="h-full flex flex-col justify-between relative z-10">
+          
           {/* Header Kartu */}
-          <div className="flex justify-between items-start border-b border-black/10 pb-6 mb-6">
-            <h3 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-[#1a1a1a]">
+          <div className="flex justify-between items-start border-b border-black/10 pb-4 md:pb-5 mb-4">
+            <h3 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-[#1a1a1a]">
               {title}
             </h3>
-            <span className="text-lg font-bold border border-black rounded-full px-4 py-1 text-[#1a1a1a]">
+            <span className="text-sm md:text-lg font-bold border border-black rounded-full px-3 py-1 text-[#1a1a1a]">
               {number}
             </span>
           </div>
 
           {/* Body Kartu */}
-          <div className="grid md:grid-cols-2 gap-12 h-full items-end">
-            <div className="space-y-6">
-              <p className="font-serif text-xl md:text-2xl text-gray-700 leading-relaxed">
+          <div className="flex flex-col md:grid md:grid-cols-2 gap-6 md:gap-10 h-full justify-between md:items-end">
+            
+            {/* Deskripsi & Tags */}
+            <div className="space-y-4">
+              {/* text-xl di desktop sudah cukup besar & mudah dibaca */}
+              <p className="font-serif text-lg md:text-xl text-gray-700 leading-relaxed line-clamp-4 md:line-clamp-none">
                 {description}
               </p>
               <div className="flex flex-wrap gap-2">
                 {items.map((item, idx) => (
-                  <span key={idx} className="text-xs font-bold uppercase tracking-widest text-gray-500 bg-white px-3 py-1 rounded-full border border-black/5">
+                  <span key={idx} className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-gray-500 bg-white px-3 py-1 rounded-full border border-black/5">
                     {item}
                   </span>
                 ))}
               </div>
             </div>
 
-            <div className="flex justify-end items-end">
-               <div className="group flex items-center gap-4 cursor-pointer">
-                  <span className="text-sm font-bold uppercase tracking-widest hidden md:block">Learn More</span>
-                  <div className="bg-[#1a1a1a] text-white p-4 rounded-full group-hover:scale-110 transition-transform duration-300">
-                    <ArrowRight size={24} className="-rotate-45 group-hover:rotate-0 transition-transform duration-300"/>
+            {/* Tombol Learn More */}
+            <div className="flex justify-end items-end mt-auto md:mt-0">
+               <div className="group flex items-center gap-3 cursor-pointer">
+                  <span className="text-xs md:text-sm font-bold uppercase tracking-widest hidden md:block">Learn More</span>
+                  <div className="bg-[#1a1a1a] text-white p-3 md:p-4 rounded-full group-hover:scale-110 transition-transform duration-300">
+                    <ArrowRight size={20} className="md:w-6 md:h-6 -rotate-45 group-hover:rotate-0 transition-transform duration-300"/>
                   </div>
                </div>
             </div>
@@ -121,7 +126,6 @@ const Card = ({ i, title, description, items, number, progress, range, targetSca
     </div>
   )
 }
-
 
 const projects = [
   {
@@ -352,20 +356,21 @@ export default function Home() {
 
       <section id="services" className="bg-[#DCDCD9] relative">
       
-      {/* Intro Title (Scroll Biasa) */}
-      <div className="px-6 md:px-12 pt-32 pb-12 max-w-7xl mx-auto">
-        <h2 className="text-6xl md:text-8xl font-black uppercase tracking-tighter mb-4 text-[#1a1a1a]">
+      {/* Intro Title Sticky */}
+      {/* Mobile: h-[15vh], Desktop: h-[30vh] */}
+      {/* Padding disesuaikan agar tidak terlalu lebar di mobile */}
+      <div className="px-6 md:px-12 pt-8 md:pt-12 max-w-7xl mx-auto sticky top-0 h-[20vh] md:h-[30vh] flex flex-col justify-center z-0">
+        <h2 className="text-4xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter mb-2 md:mb-4 text-[#1a1a1a]">
             Our <span className="font-serif italic font-light lowercase">expertise</span>
         </h2>
-        <p className="font-serif text-xl text-gray-600 max-w-xl">
-           Scroll down to explore how we can help you grow.
+        <p className="font-serif text-sm md:text-xl text-gray-600 max-w-xs md:max-w-xl">
+            Scroll down to explore.
         </p>
       </div>
 
       {/* Parallax Container */}
-      <div ref={container} className="w-full relative px-4 md:px-12 pb-32">
+      <div ref={container} className="w-full relative px-4 pb-20 md:pb-32 z-10 flex flex-col items-center">
         {services.map((service, i) => {
-          // Kalkulasi matematika untuk efek menumpuk yang halus
           const targetScale = 1 - ((services.length - i) * 0.05); 
           return (
             <Card 
@@ -382,7 +387,7 @@ export default function Home() {
     </section>
 
       {/* --- PROJECTS SECTION --- */}
-      <section id="projects" className="py-24 px-6 md:px-12">
+      <section id="projects" className=" py-24 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial="hidden"
@@ -400,8 +405,8 @@ export default function Home() {
             </Link>
           </motion.div>
 
-          <ProjectCursor>
-            <div className="grid md:grid-cols-2 gap-x-12 gap-y-20">
+          
+            <div className="grid  md:grid-cols-2 gap-x-12 gap-y-20">
               {projects.map((project, index) => (
                 <motion.div
                   key={index}
@@ -415,7 +420,7 @@ export default function Home() {
                   className="group cursor-pointer"
                 >
                   {/* Image Card */}
-                  <div className="relative aspect-[4/3] bg-muted mb-6 overflow-hidden rounded-lg shadow-lg">
+                  <div className="relative project-trigger aspect-[4/3] bg-muted mb-6 overflow-hidden rounded-lg shadow-lg">
                     <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500 z-10" />
 
                     {/* Mockup Gradient Background (Ganti dengan <Image /> asli Anda nanti) */}
@@ -436,7 +441,7 @@ export default function Home() {
                 </motion.div>
               ))}
             </div>
-          </ProjectCursor>
+          
         </div>
       </section>
 
@@ -540,6 +545,8 @@ export default function Home() {
           </div>
         </footer>
       </section>
+
+      
     </div>
   )
 }

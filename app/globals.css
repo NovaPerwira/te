@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Di globals.css */
+.no-custom-cursor {
+  cursor: auto !important; /* Memaksa kursor browser muncul kembali di area ini */
+}
+
+/* ATAU jika section tersebut punya custom cursor sendiri yang juga berupa div: */
+.no-custom-cursor {
+  cursor: none !important; 
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
