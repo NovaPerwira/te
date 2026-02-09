@@ -1,11 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  typescript: {
-    ignoreBuildErrors: true,
+  swcMinify: true,
+  compiler: {
+    removeConsole: process.env.NODE_ENV === "production",
   },
   images: {
-    unoptimized: true,
+    formats: ['image/avif', 'image/webp'],
   },
-}
+};
 
 export default nextConfig

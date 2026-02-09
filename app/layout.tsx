@@ -7,8 +7,15 @@ import Cursor from "@/components/cursor";
 import { LanguageProvider } from "@/components/language-provider";
 import './globals.css'
 
-const _geist = Geist({ subsets: ['latin'] })
-const _geistMono = Geist_Mono({ subsets: ['latin'] })
+const geistSans = Geist({
+  variable: "--font-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-mono",
+  subsets: ["latin"],
+});
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://novaperwira.com';
 
@@ -80,7 +87,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="font-sans antialiased">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased font-sans`}
+      >
         <JsonLd />
         <ThemeProvider
           attribute="class"

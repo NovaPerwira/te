@@ -195,38 +195,47 @@ export default function Home() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center max-w-7xl mx-auto w-full relative z-10">
 
           {/* Left: Text */}
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={staggerContainer}
+          <div
             className="lg:col-span-4 flex flex-col justify-center space-y-6 z-20"
           >
             <h1 className="sr-only">Nova Perwira - {t.hero.role1} {t.hero.role2} Developer</h1>
-            <motion.p variants={fadeInUp} className="font-serif text-xl italic text-muted-foreground">{t.hero.intro}</motion.p>
+            <p className="font-serif text-xl italic text-muted-foreground">{t.hero.intro}</p>
 
             <div className="leading-[0.9]">
-              <motion.div role="heading" aria-level={2} variants={fadeInUp} className="text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter uppercase font-sans mb-1">
+              <div role="heading" aria-level={2} className="text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter uppercase font-sans mb-1">
                 {t.hero.role1}
-              </motion.div>
-              <motion.h2 variants={fadeInUp} className="text-5xl md:text-6xl lg:text-7xl font-serif italic font-light mb-2">
+              </div>
+              <motion.h2
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.2 }}
+                className="text-5xl md:text-6xl lg:text-7xl font-serif italic font-light mb-2"
+              >
                 {t.hero.role2}
               </motion.h2>
-              <motion.div role="heading" aria-level={2} variants={fadeInUp} className="text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter uppercase font-sans">
+              <div role="heading" aria-level={2} className="text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter uppercase font-sans">
                 Develop<span
                   className="text-transparent mix-blend-difference"
                   style={{ WebkitTextStroke: '2px #6d6d6dff' }}
                 >
                   er
                 </span>
-              </motion.div>
+              </div>
             </div>
 
-            <motion.p variants={fadeInUp} className="text-lg font-serif text-muted-foreground max-w-md leading-relaxed mt-4">
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4 }}
+              className="text-lg font-serif text-muted-foreground max-w-md leading-relaxed mt-4"
+            >
               {t.hero.description}
             </motion.p>
 
             <motion.button
-              variants={fadeInUp}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="group self-start w-fit bg-primary text-primary-foreground rounded-full px-6 py-3 mt-6 flex items-center gap-4 hover:bg-sky-600 hover:text-white transition-colors"
@@ -236,13 +245,10 @@ export default function Home() {
                 <ArrowRight size={16} />
               </div>
             </motion.button>
-          </motion.div>
+          </div>
 
           {/* Center: Image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+          <div
             className="lg:col-span-4 h-full relative flex justify-center items-start lg:-mt-20"
           >
             <div className="relative w-full max-w-sm h-[400px] lg:h-[600px] overflow-hidden rounded-b-[200px] shadow-2xl">
@@ -252,9 +258,10 @@ export default function Home() {
                 fill
                 className="object-cover object-top hover:scale-110 transition-transform duration-700"
                 priority
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </div>
-          </motion.div>
+          </div>
 
           {/* Right: Stats (FIXED) */}
           <motion.div
