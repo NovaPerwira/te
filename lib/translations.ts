@@ -9,7 +9,7 @@ export const translations = {
             letsTalk: "Let's Talk",
         },
         hero: {
-            intro: "Hey, I'm Nova,",
+            intro: "Hey, I'm Nova Perwira,",
             role1: "A AI",
             role2: "& Web",
             role3: "Developer",
@@ -111,7 +111,7 @@ export const translations = {
             letsTalk: "Ayo Bicara",
         },
         hero: {
-            intro: "Hai, saya Nova,",
+            intro: "Hai, saya Nova Perwira,",
             role1: "Seorang",
             role2: "AI & Web",
             role3: "Developer",
