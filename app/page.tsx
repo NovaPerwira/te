@@ -5,14 +5,26 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Navbar from '@/components/navbar';
 import { ArrowRight, ArrowUpRight, Mail } from "lucide-react";
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, Variants, MotionValue } from 'framer-motion';
 import CountUp from 'react-countup';
 import HorizontalScrollSection from '@/components/text';
 import { useLanguage } from '@/components/language-provider';
 
+interface CardProps {
+  i: number;
+  title: string;
+  description: string;
+  items: string[];
+  number: string;
+  progress: MotionValue<number>;
+  range: number[];
+  targetScale: number;
+  learnMoreText: string;
+}
+
 // Move Card component definition outside if it's stable, or keep inside if needed. 
 // It receives props so it's fine outside. Use semantic colors.
-const Card = ({ i, title, description, items, number, progress, range, targetScale, learnMoreText }) => {
+const Card = ({ i, title, description, items, number, progress, range, targetScale, learnMoreText }: CardProps) => {
   const container = useRef(null);
 
   const { scrollYProgress } = useScroll({
@@ -84,12 +96,12 @@ const Card = ({ i, title, description, items, number, progress, range, targetSca
 }
 
 // --- ANIMATION VARIANTS ---
-const fadeInUp = {
+const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 60 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
 };
 
-const staggerContainer = {
+const staggerContainer: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -189,23 +201,24 @@ export default function Home() {
             variants={staggerContainer}
             className="lg:col-span-4 flex flex-col justify-center space-y-6 z-20"
           >
+            <h1 className="sr-only">Nova Perwira - {t.hero.role1} {t.hero.role2} Developer</h1>
             <motion.p variants={fadeInUp} className="font-serif text-xl italic text-muted-foreground">{t.hero.intro}</motion.p>
 
             <div className="leading-[0.9]">
-              <motion.h1 variants={fadeInUp} className="text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter uppercase font-sans mb-1">
+              <motion.div role="heading" aria-level={2} variants={fadeInUp} className="text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter uppercase font-sans mb-1">
                 {t.hero.role1}
-              </motion.h1>
+              </motion.div>
               <motion.h2 variants={fadeInUp} className="text-5xl md:text-6xl lg:text-7xl font-serif italic font-light mb-2">
                 {t.hero.role2}
               </motion.h2>
-              <motion.h1 variants={fadeInUp} className="text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter uppercase font-sans">
+              <motion.div role="heading" aria-level={2} variants={fadeInUp} className="text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter uppercase font-sans">
                 Develop<span
                   className="text-transparent mix-blend-difference"
                   style={{ WebkitTextStroke: '2px #6d6d6dff' }}
                 >
                   er
                 </span>
-              </motion.h1>
+              </motion.div>
             </div>
 
             <motion.p variants={fadeInUp} className="text-lg font-serif text-muted-foreground max-w-md leading-relaxed mt-4">
