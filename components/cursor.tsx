@@ -15,11 +15,12 @@ export default function Cursor() {
   const cursorY = useSpring(mouseY, springConfig);
 
   useEffect(() => {
-    const moveMouse = (e) => {
+    const moveMouse = (e: MouseEvent) => {
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
 
-      const target = e.target;
+      const target = e.target as Element | null;
+      if (!target) return;
 
       // ---------------------------------------------------------
       // 1. PRIORITY: PROJECT TRIGGER
@@ -43,14 +44,14 @@ export default function Cursor() {
       // 3. INTERACTIVE ELEMENTS
       // Cek link/button biasa
       // ---------------------------------------------------------
-      const tagName = target.tagName.toLowerCase();
+      const tagName = (target as HTMLElement).tagName.toLowerCase();
       const isInteractive =
         tagName === "a" ||
         tagName === "button" ||
         tagName === "input" ||
         target.closest("a") ||
         target.closest("button") ||
-        target.classList.contains("cursor-pointer");
+        (target as HTMLElement).classList.contains("cursor-pointer");
 
       setCursorVariant(isInteractive ? "text" : "default");
     };

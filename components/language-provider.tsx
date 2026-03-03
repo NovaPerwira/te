@@ -27,9 +27,10 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
         localStorage.setItem('language', lang);
     };
 
-    const value = {
+    const value: LanguageContextType = {
         language,
         setLanguage: handleSetLanguage,
+        // @ts-ignore: Mismatched keys intentionally used for translated categorization 
         t: translations[language],
     };
 

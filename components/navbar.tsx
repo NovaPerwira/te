@@ -34,7 +34,7 @@ export default function Navbar() {
     // 2. Logika Hide/Show Navbar
     // Jika scroll ke bawah (latest > previous) DAN sudah scroll agak jauh (> 150px) -> Sembunyikan
     // Jika scroll ke atas (latest < previous) -> Tampilkan
-    if (latest > previous && latest > 150) {
+    if (previous !== undefined && latest > previous && latest > 150) {
       setHidden(true);
     } else {
       setHidden(false);
