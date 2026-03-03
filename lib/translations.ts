@@ -62,17 +62,17 @@ export const translations = {
                 {
                     title: 'Effection',
                     category: 'Development, Design',
-                    description: 'Real-time analytics dashboard with custom data visualization components',
+                    description: 'An international competition platform built to connect participants worldwide, featuring real-time leaderboards, submission management, and a seamless judging experience.',
                 },
                 {
-                    title: 'Brand Identity System',
-                    category: 'Branding, Design',
-                    description: 'Comprehensive brand guidelines and design system for growing startup',
+                    title: 'Hospital Management',
+                    category: 'Full-Stack, Development',
+                    description: 'A comprehensive hospital management system packed with complex features — from patient records and scheduling to billing, pharmacy, and real-time bed availability tracking.',
                 },
                 {
-                    title: 'Mobile App Design',
-                    category: 'Design, Development',
-                    description: 'iOS & Android native application with seamless user experience',
+                    title: 'Homeland Café',
+                    category: 'Design, Branding',
+                    description: 'A culture-driven café brand and digital presence celebrating local heritage — from a warm visual identity rooted in tradition to a modern website that tells its authentic story.',
                 }
             ]
         },
@@ -164,17 +164,17 @@ export const translations = {
                 {
                     title: 'Effection',
                     category: 'Pengembangan, Desain',
-                    description: 'Dasbor analitik real-time dengan komponen visualisasi data kustom',
+                    description: 'Platform kompetisi internasional yang menghubungkan peserta dari seluruh dunia, dilengkapi dengan papan peringkat real-time, manajemen submisi, dan pengalaman penjurian yang mulus.',
                 },
                 {
-                    title: 'Sistem Identitas Brand',
-                    category: 'Branding, Desain',
-                    description: 'Panduan merek komprehensif dan sistem desain untuk startup yang sedang berkembang',
+                    title: 'Manajemen Rumah Sakit',
+                    category: 'Full-Stack, Pengembangan',
+                    description: 'Sistem manajemen rumah sakit komprehensif dengan fitur lengkap — mulai dari rekam medis dan penjadwalan hingga penagihan, apotek, dan pelacakan ketersediaan tempat tidur secara real-time.',
                 },
                 {
-                    title: 'Desain Aplikasi Mobile',
-                    category: 'Desain, Pengembangan',
-                    description: 'Aplikasi native iOS & Android dengan pengalaman pengguna yang mulus',
+                    title: 'Homeland Café',
+                    category: 'Desain, Branding',
+                    description: 'Brand kafe berbasis budaya lokal dengan kehadiran digital yang merayakan warisan daerah — dari identitas visual yang hangat berakar pada tradisi hingga website modern yang menceritakan kisah autentiknya.',
                 }
             ]
         },

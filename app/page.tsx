@@ -153,28 +153,28 @@ export default function Home() {
       title: t.projects.items[0].title,
       category: t.projects.items[0].category,
       description: t.projects.items[0].description,
-      image: '/Jasa Digital UMKM.png',
+      image: '/kavushion.png',
       href: 'https://kavushion.vercel.app'
     },
     {
       title: t.projects.items[1].title,
       category: t.projects.items[1].category,
       description: t.projects.items[1].description,
-      image: '/Jasa Digital UMKM.png',
+      image: '/hospital.png',
       href: '#'
     },
     {
       title: t.projects.items[2].title,
       category: t.projects.items[2].category,
       description: t.projects.items[2].description,
-      image: '/Jasa Digital UMKM.png',
+      image: '/efection.png',
       href: '#'
     },
     {
       title: t.projects.items[3].title,
       category: t.projects.items[3].category,
       description: t.projects.items[3].description,
-      image: '/Jasa Digital UMKM.png',
+      image: '/homeland.png',
       href: '#'
     }
   ];
