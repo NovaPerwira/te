@@ -23,7 +23,7 @@ export const translations = {
             }
         },
         services: {
-            title: "Our",
+            title: "My",
             subtitle: "expertise",
             scroll: "Scroll down to explore.",
             items: [
@@ -126,7 +126,7 @@ export const translations = {
         },
         services: {
             title: "Keahlian",
-            subtitle: "Kami",
+            subtitle: "Saya",
             scroll: "Gulir ke bawah untuk melihat.",
             items: [
                 {
