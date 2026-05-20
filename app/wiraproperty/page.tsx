@@ -171,9 +171,9 @@ export default function WiraPropertyPage() {
           </h2>
 
           <div className="hero">
-            <div className="hero-tag">Project Proposal — Production Ready</div>
+            <div className="hero-tag">Scoope Of Work</div>
             <h1>Platform Digital<br/><em>WiraProperty</em></h1>
-            <p className="hero-sub">Sistem manajemen properti dan hospitality kelas enterprise — dibangun dari nol, diaudit tuntas, dan siap menghasilkan revenue dari hari pertama operasi.</p>
+            <p className="hero-sub">Sistem manajemen properti dan booking enterprise — dibangun dari nol, diaudit tuntas, dan siap menghasilkan revenue.</p>
             <div className="hero-meta">
               <div><span>May 2026</span>Tanggal Serah Terima</div>
               <div><span>End-to-End</span>Status Sistem</div>
